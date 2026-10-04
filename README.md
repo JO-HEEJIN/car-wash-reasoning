@@ -1,6 +1,90 @@
+# Car Wash Reasoning
+
+Code and data for a series of experiments on the "car wash problem" — a
+simple implicit-constraint reasoning task ("I want to wash my car. The
+car wash is 100 meters away. Should I walk or drive?") that most LLMs
+get wrong by default. Every reported statistic in these papers ships
+with the data and code that produced it.
+
+Author: Heejin Jo ([info@birth2death.com](mailto:info@birth2death.com),
+[heejinjo.me](https://www.heejinjo.me))
+
+## Papers
+
+| Folder | Paper | arXiv | Hardware |
+|---|---|---|---|
+| [`/`](.) (root) | Prompt Architecture Determines Reasoning Quality: A Variable Isolation Study on the Car Wash Problem | [2602.21814](https://arxiv.org/abs/2602.21814) | Claude API |
+| [`followup_arxiv/`](followup_arxiv/) | Prompt Complexity Dilutes Structured Reasoning: A Follow-Up Study on the Car Wash Problem | [2603.13351](https://arxiv.org/abs/2603.13351) | Claude API |
+| [`paper_4/`](paper_4/) | Committed Before Reasoning | [2607.16451](https://arxiv.org/abs/2607.16451) | Qwen3-8B, Apple Silicon (MPS), bf16 |
+| [`paper_5/`](paper_5/) | **Unpublished.** Extension of paper 4's activation-probing pipeline to new tasks and a scaled sample. | — | Qwen3-8B, CUDA (regeneration instructions for porting off the original MPS run) |
+| [`cross-model-evaluation/`](cross-model-evaluation/) | **Unpublished.** Does the paper-2 STAR finding generalize beyond Claude? | — | GPT-4o (OpenAI API), Gemini 2.5 Pro (Google API) |
+
+Paper 5 and the cross-model evaluation are included for completeness
+and transparency — they are real experiments with real data, but
+neither has been submitted anywhere. Treat their claims as
+preliminary.
+
+## Regenerating the statistics
+
+- **Paper 2 / paper 3:** `pip install -r requirements.txt`, set
+  `ANTHROPIC_API_KEY` (see `.env.example`), then run `experiment.py`,
+  `experiment_branching.py`, `experiment_profile_star.py`, or
+  `run_f_condition.py`. Each run writes a timestamped folder under
+  `results/` with `raw.jsonl`, `summary.json`, and usually `report.md`
+  — the numbers in the papers are read directly from those files, not
+  retyped.
+- **Paper 4:** see [`paper_4/README.md`](paper_4/README.md). Statistics
+  are persisted by `paper_4/compute_statistics.py` into
+  `paper_4/stage2_results/statistics.json`.
+- **Paper 5 (unpublished):** see
+  [`paper_5/data/REGENERATE.md`](paper_5/data/REGENERATE.md) for
+  porting the activation extraction to a CUDA machine, and
+  [`paper_5/data/VERIFICATION_REPORT.md`](paper_5/data/VERIFICATION_REPORT.md)
+  for how the port was checked against the original run.
+- **Cross-model evaluation (unpublished):** set `OPENAI_API_KEY`
+  and/or `GOOGLE_API_KEY`, run `experiment_cross_model.py` or
+  `experiment_gemini_only.py` from `cross-model-evaluation/`.
+
+## Where this code used to live
+
+This work was originally developed inside a larger application
+repository (`interview_mate`), which is now private. The published
+PDFs for papers 2 and 3 cite that repository's URL as the code
+location; that URL is no longer reachable. Everything it pointed to
+has been mirrored here, with full commit history preserved.
+
+| Link in the published PDF | Current location |
+|---|---|
+| `github.com/JO-HEEJIN/interview_mate/tree/main/car_wash` (paper 2) | this repo, root |
+| `github.com/JO-HEEJIN/interview_mate/tree/main/car_wash` (paper 3) | [`followup_arxiv/`](followup_arxiv/) in this repo |
+
+The in-repo copies of the paper sources (`car_wash_paper_v3_final.md`,
+`followup_paper_draft.md`, `followup_arxiv/main.tex`) have already been
+updated to cite this repository directly; only the already-published
+arXiv PDFs still show the old link.
+
+## A note on history
+
+This repository was assembled from two source branches of the
+original (private) application repo — one holding papers 2 and 3, the
+other holding papers 4 and 5 — merged here with `git filter-repo`,
+preserving per-commit history from both. One internal working-notes
+file was removed before the merge (it referenced a private email
+exchange, already sent and not part of any paper's claims), and a
+handful of local filesystem paths were redacted to placeholders. No
+experimental data, code, or reported statistic was altered.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+---
+
+# Paper 2 detail: Prompt Architecture Determines Reasoning Quality
+
 # Car Wash Prompt Architecture — Variable Isolation Results
 
-> **Correction (March 2026).** A follow-up investigation ([`investigation_2026-03-07.md`](investigation_2026-03-07.md), raw results in [`results/profile_star_20260307_233627/`](../results/profile_star_20260307_233627/) and [`results/c_star_only_100_20260308_002609/`](results/c_star_only_100_20260308_002609/)) changed how these results should be read:
+> **Correction (March 2026).** A follow-up investigation ([`investigation_2026-03-07.md`](investigation_2026-03-07.md), raw results in [`results/profile_star_20260307_233627/`](results/profile_star_20260307_233627/) and [`results/c_star_only_100_20260308_002609/`](results/c_star_only_100_20260308_002609/)) changed how these results should be read:
 >
 > - The conditions below use **simplified experimental prompts**, not InterviewMate's production prompt. They do not validate the production prompt architecture.
 > - The same STAR scaffold embedded in the full production prompt passed **0/20 and 6/20** (claude-sonnet-4-6), depending on the profile. Standalone it passed 20/20, and 100/100 in a later run. Instructions such as "lead with the point" appear to make the model commit to an answer before reasoning.
