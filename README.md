@@ -15,7 +15,7 @@ Author: Heejin Jo ([info@birth2death.com](mailto:info@birth2death.com),
 |---|---|---|---|
 | [`/`](.) (root) | Prompt Architecture Determines Reasoning Quality: A Variable Isolation Study on the Car Wash Problem | [2602.21814](https://arxiv.org/abs/2602.21814) | Claude API |
 | [`followup_arxiv/`](followup_arxiv/) | Prompt Complexity Dilutes Structured Reasoning: A Follow-Up Study on the Car Wash Problem | [2603.13351](https://arxiv.org/abs/2603.13351) | Claude API |
-| [`paper_4/`](paper_4/) | Committed Before Reasoning | [2607.16451](https://arxiv.org/abs/2607.16451) | Qwen3-8B, Apple Silicon (MPS), bf16 |
+| [`paper_4/`](paper_4/) | Committed Before Reasoning: Behavioral Reproduction and Preliminary Activation-Level Evidence of Answer Pre-Commitment in an Open-Weight LLM | [2607.16451](https://arxiv.org/abs/2607.16451) | Qwen3-8B, Apple Silicon (MPS), bf16 |
 | [`paper_5/`](paper_5/) | **Unpublished.** Extension of paper 4's activation-probing pipeline to new tasks and a scaled sample. | — | Qwen3-8B, CUDA (regeneration instructions for porting off the original MPS run) |
 | [`cross-model-evaluation/`](cross-model-evaluation/) | **Unpublished.** Does the paper-2 STAR finding generalize beyond Claude? | — | GPT-4o (OpenAI API), Gemini 2.5 Pro (Google API) |
 
