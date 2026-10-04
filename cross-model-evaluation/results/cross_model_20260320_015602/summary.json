@@ -1,0 +1,50 @@
+{
+  "gpt-4o/A_bare": {
+    "total": 50,
+    "primary_pass": 0,
+    "primary_fail": 3,
+    "primary_ambiguous": 47,
+    "primary_pass_rate": 0.0,
+    "challenged": 50,
+    "recovered": 42,
+    "recovery_rate": 0.84,
+    "median_latency_ms": 2116,
+    "errors": 0,
+    "model": "gpt-4o",
+    "condition": "A_bare",
+    "description": "No system prompt. Baseline."
+  },
+  "gpt-4o/C_star": {
+    "total": 100,
+    "primary_pass": 55,
+    "primary_fail": 10,
+    "primary_ambiguous": 35,
+    "primary_pass_rate": 0.55,
+    "challenged": 45,
+    "recovered": 37,
+    "recovery_rate": 0.822,
+    "median_latency_ms": 5589,
+    "errors": 0,
+    "model": "gpt-4o",
+    "condition": "C_star",
+    "description": "Role + STAR reasoning framework."
+  },
+  "gemini-1.5-pro/A_bare": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 50,
+    "model": "gemini-1.5-pro",
+    "condition": "A_bare",
+    "description": "No system prompt. Baseline."
+  },
+  "gemini-1.5-pro/C_star": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 100,
+    "model": "gemini-1.5-pro",
+    "condition": "C_star",
+    "description": "Role + STAR reasoning framework."
+  }
+}

@@ -6,7 +6,7 @@
 **URL:** https://www.heejinjo.me
 **Date:** 2026-02-25
 **Model Tested:** claude-sonnet-4-5-20250929
-**Code:** https://github.com/JO-HEEJIN/interview_mate/tree/main/car_wash
+**Code:** https://github.com/JO-HEEJIN/car-wash-reasoning
 
 ---
 

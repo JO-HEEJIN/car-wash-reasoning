@@ -6,7 +6,7 @@
 **URL:** https://www.heejinjo.me
 **Date:** 2026-03-08
 **Models Tested:** claude-sonnet-4-5-20250929, claude-sonnet-4-6
-**Code:** https://github.com/JO-HEEJIN/interview_mate/tree/main/car_wash
+**Code:** https://github.com/JO-HEEJIN/car-wash-reasoning/tree/main/followup_arxiv
 
 ---
 
@@ -564,7 +564,7 @@ Now answer the interview question following these guidelines.
 
 ### B. Experiment Code
 
-Available at: https://github.com/JO-HEEJIN/interview_mate/tree/main/car_wash
+Available at: https://github.com/JO-HEEJIN/car-wash-reasoning/tree/main/followup_arxiv
 
 ### C. Raw Data
 

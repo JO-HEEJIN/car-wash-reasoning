@@ -1,0 +1,28 @@
+{
+  "A_bare": {
+    "total": 50,
+    "primary_pass": 14,
+    "primary_fail": 19,
+    "primary_ambiguous": 17,
+    "primary_pass_rate": 0.28,
+    "challenged": 36,
+    "recovered": 6,
+    "recovery_rate": 0.167,
+    "median_latency_ms": 18341,
+    "errors": 0,
+    "description": "No system prompt. Baseline."
+  },
+  "C_star": {
+    "total": 100,
+    "primary_pass": 38,
+    "primary_fail": 15,
+    "primary_ambiguous": 47,
+    "primary_pass_rate": 0.38,
+    "challenged": 62,
+    "recovered": 14,
+    "recovery_rate": 0.226,
+    "median_latency_ms": 20185,
+    "errors": 0,
+    "description": "Role + STAR reasoning framework."
+  }
+}

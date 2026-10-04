@@ -1,0 +1,38 @@
+{
+  "gpt-4o/A_bare": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 50,
+    "model": "gpt-4o",
+    "condition": "A_bare",
+    "description": "No system prompt. Baseline."
+  },
+  "gpt-4o/C_star": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 100,
+    "model": "gpt-4o",
+    "condition": "C_star",
+    "description": "Role + STAR reasoning framework."
+  },
+  "gemini-1.5-pro/A_bare": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 50,
+    "model": "gemini-1.5-pro",
+    "condition": "A_bare",
+    "description": "No system prompt. Baseline."
+  },
+  "gemini-1.5-pro/C_star": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 100,
+    "model": "gemini-1.5-pro",
+    "condition": "C_star",
+    "description": "Role + STAR reasoning framework."
+  }
+}

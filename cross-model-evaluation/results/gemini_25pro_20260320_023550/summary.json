@@ -1,0 +1,16 @@
+{
+  "A_bare": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 50,
+    "description": "No system prompt. Baseline."
+  },
+  "C_star": {
+    "total": 0,
+    "primary_pass": 0,
+    "primary_pass_rate": 0,
+    "errors": 100,
+    "description": "Role + STAR reasoning framework."
+  }
+}
